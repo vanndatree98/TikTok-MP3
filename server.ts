@@ -2,6 +2,23 @@ import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
+
+// Automatically ensure Windows tool directories (e.g. WinGet packages, FFmpeg, ImageMagick) are in PATH
+if (process.platform === 'win32') {
+  const localAppData = process.env.LOCALAPPDATA || '';
+  const candidateDirs = [
+    path.join(localAppData, 'Microsoft', 'WinGet', 'Links'),
+    path.join(localAppData, 'Microsoft', 'WinGet', 'Packages', 'Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe', 'ffmpeg-9.0.2-full_build', 'bin'),
+    'C:\\ffmpeg\\bin',
+    'C:\\Program Files\\ffmpeg\\bin'
+  ];
+  for (const dir of candidateDirs) {
+    if (fs.existsSync(dir) && !process.env.PATH?.includes(dir)) {
+      process.env.PATH = `${dir};${process.env.PATH}`;
+    }
+  }
+}
+
 import { handleApiRequest } from './server/downloader.ts';
 import { handleAiThumbnail } from './server/aiThumbnail.ts';
 import { handleTranslateRequest } from './server/translation.ts';
