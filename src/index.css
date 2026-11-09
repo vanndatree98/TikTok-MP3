@@ -1,0 +1,606 @@
+@import "tailwindcss";
+
+/* ========================================================
+   GLOBAL AESTHETIC THEME PRESETS (ប្រព័ន្ធរចនាបថពណ៌ Theme ឆ្លាតវៃ)
+   - Midnight Blue (Classic oceanic navy & sapphire)
+   - Cyberpunk Purple (Neon violet, fuchsia & synthwave)
+   - Minimalist Slate (Architectural graphite & platinum)
+   - Emerald Matrix (Bio-digital forest jade & mint)
+   - Sunset Amber (Golden amber, warm copper & dusk crimson)
+   ======================================================== */
+
+:root,
+[data-theme="midnight-blue"] {
+  --theme-bg-base: #030712;
+  --theme-bg-surface: rgba(15, 23, 42, 0.88);
+  --theme-bg-surface-solid: #0f172a;
+  --theme-bg-elevated: rgba(30, 41, 59, 0.95);
+  --theme-border: rgba(51, 65, 85, 0.65);
+  --theme-border-highlight: rgba(99, 102, 241, 0.65);
+  --theme-border-subtle: rgba(255, 255, 255, 0.08);
+  --theme-primary: #3b82f6;
+  --theme-primary-hover: #60a5fa;
+  --theme-primary-rgb: 59, 130, 246;
+  --theme-accent: #38bdf8;
+  --theme-accent-rgb: 56, 189, 248;
+  --theme-glow: rgba(59, 130, 246, 0.35);
+  --theme-glow-strong: rgba(99, 102, 241, 0.5);
+  --theme-gradient-hero: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #818cf8 100%);
+  --theme-gradient-bg: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 58, 138, 0.38), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(14, 165, 233, 0.14), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(99, 102, 241, 0.12), transparent 70%);
+  --theme-badge-bg: rgba(59, 130, 246, 0.15);
+  --theme-badge-text: #93c5fd;
+  --theme-badge-border: rgba(59, 130, 246, 0.3);
+  --theme-header-bg: rgba(3, 7, 18, 0.85);
+  --theme-header-border: rgba(30, 41, 59, 0.8);
+  --theme-selection-bg: #3b82f6;
+}
+
+[data-theme="cyberpunk-purple"] {
+  --theme-bg-base: #080214;
+  --theme-bg-surface: rgba(24, 12, 38, 0.88);
+  --theme-bg-surface-solid: #190c29;
+  --theme-bg-elevated: rgba(43, 19, 68, 0.95);
+  --theme-border: rgba(107, 33, 168, 0.65);
+  --theme-border-highlight: rgba(217, 70, 239, 0.7);
+  --theme-border-subtle: rgba(255, 255, 255, 0.1);
+  --theme-primary: #a855f7;
+  --theme-primary-hover: #c084fc;
+  --theme-primary-rgb: 168, 85, 247;
+  --theme-accent: #ec4899;
+  --theme-accent-rgb: 236, 72, 153;
+  --theme-glow: rgba(168, 85, 247, 0.45);
+  --theme-glow-strong: rgba(236, 72, 153, 0.6);
+  --theme-gradient-hero: linear-gradient(135deg, #c084fc 0%, #f472b6 45%, #38bdf8 100%);
+  --theme-gradient-bg: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(112, 26, 117, 0.45), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(168, 85, 247, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(236, 72, 153, 0.18), transparent 70%);
+  --theme-badge-bg: rgba(168, 85, 247, 0.18);
+  --theme-badge-text: #e9d5ff;
+  --theme-badge-border: rgba(168, 85, 247, 0.35);
+  --theme-header-bg: rgba(8, 2, 20, 0.85);
+  --theme-header-border: rgba(88, 28, 135, 0.7);
+  --theme-selection-bg: #a855f7;
+}
+
+[data-theme="minimalist-slate"] {
+  --theme-bg-base: #090c10;
+  --theme-bg-surface: rgba(18, 22, 29, 0.92);
+  --theme-bg-surface-solid: #151921;
+  --theme-bg-elevated: rgba(30, 36, 48, 0.96);
+  --theme-border: rgba(71, 85, 105, 0.55);
+  --theme-border-highlight: rgba(148, 163, 184, 0.6);
+  --theme-border-subtle: rgba(255, 255, 255, 0.06);
+  --theme-primary: #94a3b8;
+  --theme-primary-hover: #cbd5e1;
+  --theme-primary-rgb: 148, 163, 184;
+  --theme-accent: #f8fafc;
+  --theme-accent-rgb: 248, 250, 252;
+  --theme-glow: rgba(148, 163, 184, 0.22);
+  --theme-glow-strong: rgba(203, 213, 225, 0.35);
+  --theme-gradient-hero: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #94a3b8 100%);
+  --theme-gradient-bg: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(51, 65, 85, 0.32), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(30, 41, 59, 0.28), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(15, 23, 42, 0.22), transparent 70%);
+  --theme-badge-bg: rgba(148, 163, 184, 0.12);
+  --theme-badge-text: #e2e8f0;
+  --theme-badge-border: rgba(148, 163, 184, 0.25);
+  --theme-header-bg: rgba(9, 12, 16, 0.88);
+  --theme-header-border: rgba(51, 65, 85, 0.6);
+  --theme-selection-bg: #64748b;
+}
+
+[data-theme="emerald-matrix"] {
+  --theme-bg-base: #021008;
+  --theme-bg-surface: rgba(6, 26, 18, 0.88);
+  --theme-bg-surface-solid: #092317;
+  --theme-bg-elevated: rgba(12, 43, 30, 0.95);
+  --theme-border: rgba(20, 83, 45, 0.65);
+  --theme-border-highlight: rgba(52, 211, 153, 0.65);
+  --theme-border-subtle: rgba(255, 255, 255, 0.08);
+  --theme-primary: #10b981;
+  --theme-primary-hover: #34d399;
+  --theme-primary-rgb: 16, 185, 129;
+  --theme-accent: #34d399;
+  --theme-accent-rgb: 52, 211, 153;
+  --theme-glow: rgba(16, 185, 129, 0.4);
+  --theme-glow-strong: rgba(52, 211, 153, 0.55);
+  --theme-gradient-hero: linear-gradient(135deg, #34d399 0%, #2dd4bf 50%, #6ee7b7 100%);
+  --theme-gradient-bg: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 78, 59, 0.45), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(13, 148, 136, 0.2), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(16, 185, 129, 0.14), transparent 70%);
+  --theme-badge-bg: rgba(16, 185, 129, 0.18);
+  --theme-badge-text: #a7f3d0;
+  --theme-badge-border: rgba(16, 185, 129, 0.35);
+  --theme-header-bg: rgba(2, 16, 8, 0.88);
+  --theme-header-border: rgba(20, 83, 45, 0.7);
+  --theme-selection-bg: #10b981;
+}
+
+[data-theme="sunset-amber"] {
+  --theme-bg-base: #100702;
+  --theme-bg-surface: rgba(26, 15, 7, 0.88);
+  --theme-bg-surface-solid: #231207;
+  --theme-bg-elevated: rgba(43, 22, 11, 0.95);
+  --theme-border: rgba(120, 53, 15, 0.65);
+  --theme-border-highlight: rgba(245, 158, 11, 0.65);
+  --theme-border-subtle: rgba(255, 255, 255, 0.08);
+  --theme-primary: #f59e0b;
+  --theme-primary-hover: #fbbf24;
+  --theme-primary-rgb: 245, 158, 11;
+  --theme-accent: #f97316;
+  --theme-accent-rgb: 249, 115, 22;
+  --theme-glow: rgba(245, 158, 11, 0.4);
+  --theme-glow-strong: rgba(249, 115, 22, 0.55);
+  --theme-gradient-hero: linear-gradient(135deg, #fbbf24 0%, #fb923c 50%, #f43f5e 100%);
+  --theme-gradient-bg: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 53, 15, 0.45), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(234, 88, 12, 0.2), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 70%, rgba(245, 158, 11, 0.14), transparent 70%);
+  --theme-badge-bg: rgba(245, 158, 11, 0.18);
+  --theme-badge-text: #fde68a;
+  --theme-badge-border: rgba(245, 158, 11, 0.35);
+  --theme-header-bg: rgba(16, 7, 2, 0.88);
+  --theme-header-border: rgba(120, 53, 15, 0.7);
+  --theme-selection-bg: #f59e0b;
+}
+
+/* Dynamic Theme Utilities */
+.theme-canvas {
+  background-color: var(--theme-bg-base);
+  background-image: var(--theme-gradient-bg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.theme-card {
+  background-color: var(--theme-bg-surface);
+  border-color: var(--theme-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.theme-card:hover {
+  border-color: var(--theme-border-highlight);
+}
+
+.theme-elevated {
+  background-color: var(--theme-bg-elevated);
+  border-color: var(--theme-border);
+}
+
+.theme-hero-gradient {
+  background: var(--theme-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-header {
+  background-color: var(--theme-header-bg);
+  border-color: var(--theme-header-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-glow-sm {
+  box-shadow: 0 0 20px -5px var(--theme-glow);
+}
+.theme-glow-md {
+  box-shadow: 0 0 35px -5px var(--theme-glow);
+}
+
+::selection {
+  background-color: var(--theme-selection-bg, #3b82f6);
+  color: #ffffff;
+}
+
+.btn-3d-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateY(0);
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+/* Glossy specular reflection overlay */
+.btn-3d-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.12) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Shimmer light sweep across button */
+.btn-3d-glass::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.6s ease;
+}
+
+.btn-3d-glass:hover::after {
+  opacity: 1;
+  transform: translateX(380%) rotate(25deg);
+}
+
+.btn-3d-glass:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn-3d-glass:active:not(:disabled) {
+  transform: translateY(3px) !important;
+}
+
+.btn-3d-glass:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 1. Indigo / Royal Violet 3D Glass */
+.btn-3d-glass-indigo {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.88) 0%, rgba(79, 70, 229, 0.92) 50%, rgba(124, 58, 237, 0.9) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 4px 0 0 #3730a3,
+    0 8px 20px -2px rgba(99, 102, 241, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.btn-3d-glass-indigo:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.92) 0%, rgba(99, 102, 241, 0.95) 50%, rgba(139, 92, 246, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 6px 0 0 #3730a3,
+    0 12px 28px -2px rgba(99, 102, 241, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-indigo:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #3730a3,
+    0 3px 10px 0 rgba(99, 102, 241, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Amber / Gold 3D Glass */
+.btn-3d-glass-amber {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.92) 0%, rgba(245, 158, 11, 0.95) 50%, rgba(217, 119, 6, 0.92) 100%);
+  color: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 4px 0 0 #b45309,
+    0 8px 20px -2px rgba(245, 158, 11, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.btn-3d-glass-amber:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(252, 211, 77, 0.95) 0%, rgba(251, 191, 36, 0.98) 50%, rgba(245, 158, 11, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 6px 0 0 #b45309,
+    0 12px 28px -2px rgba(245, 158, 11, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.12);
+}
+.btn-3d-glass-amber:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #b45309,
+    0 3px 10px 0 rgba(245, 158, 11, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Teal / Emerald 3D Glass */
+.btn-3d-glass-teal {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.9) 0%, rgba(16, 185, 129, 0.93) 50%, rgba(6, 182, 212, 0.9) 100%);
+  color: #042f2e;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 4px 0 0 #0f766e,
+    0 8px 20px -2px rgba(20, 184, 166, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn-3d-glass-teal:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.95) 0%, rgba(52, 211, 153, 0.98) 50%, rgba(34, 211, 238, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 6px 0 0 #0f766e,
+    0 12px 28px -2px rgba(20, 184, 166, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-3d-glass-teal:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #0f766e,
+    0 3px 10px 0 rgba(20, 184, 166, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* 4. Cyan / Ocean Blue 3D Glass */
+.btn-3d-glass-cyan {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.88) 0%, rgba(14, 165, 233, 0.92) 50%, rgba(37, 99, 235, 0.9) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 0 0 #0369a1,
+    0 8px 20px -2px rgba(14, 165, 233, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.btn-3d-glass-cyan:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.92) 0%, rgba(56, 189, 248, 0.95) 50%, rgba(59, 130, 246, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 6px 0 0 #0369a1,
+    0 12px 28px -2px rgba(14, 165, 233, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-cyan:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #0369a1,
+    0 3px 10px 0 rgba(14, 165, 233, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 5. Violet / Purple 3D Glass (MP3 Master) */
+.btn-3d-glass-violet {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.88) 0%, rgba(124, 58, 237, 0.92) 50%, rgba(168, 85, 247, 0.9) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 0 0 #5b21b6,
+    0 8px 20px -2px rgba(139, 92, 246, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.btn-3d-glass-violet:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.92) 0%, rgba(139, 92, 246, 0.95) 50%, rgba(192, 132, 252, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 6px 0 0 #5b21b6,
+    0 12px 28px -2px rgba(139, 92, 246, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-violet:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #5b21b6,
+    0 3px 10px 0 rgba(139, 92, 246, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 6. Emerald / Green 3D Glass */
+.btn-3d-glass-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.88) 0%, rgba(5, 150, 105, 0.92) 50%, rgba(13, 148, 136, 0.9) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 0 0 #065f46,
+    0 8px 20px -2px rgba(16, 185, 129, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.btn-3d-glass-emerald:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.92) 0%, rgba(16, 185, 129, 0.95) 50%, rgba(20, 184, 166, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 6px 0 0 #065f46,
+    0 12px 28px -2px rgba(16, 185, 129, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-emerald:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #065f46,
+    0 3px 10px 0 rgba(16, 185, 129, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 7. Obsidian Slate 3D Glass (Secondary / Neutral) */
+.btn-3d-glass-slate {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.92) 50%, rgba(30, 41, 59, 0.85) 100%);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 3px 0 0 #020617,
+    0 6px 16px -2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+.btn-3d-glass-slate:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(51, 65, 85, 0.9) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(51, 65, 85, 0.9) 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  box-shadow:
+    0 5px 0 0 #020617,
+    0 10px 22px -2px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+.btn-3d-glass-slate:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #020617,
+    0 2px 6px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* 8. Rose / Ruby 3D Glass */
+.btn-3d-glass-rose {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.88) 0%, rgba(225, 29, 72, 0.92) 50%, rgba(190, 18, 60, 0.9) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 0 0 #881337,
+    0 8px 20px -2px rgba(244, 63, 94, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.btn-3d-glass-rose:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(251, 113, 133, 0.92) 0%, rgba(244, 63, 94, 0.95) 50%, rgba(225, 29, 72, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 6px 0 0 #881337,
+    0 12px 28px -2px rgba(244, 63, 94, 0.6),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-rose:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #881337,
+    0 3px 10px 0 rgba(244, 63, 94, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 9. Master All-In-One 3D Glass (Download All Qualities) */
+.btn-3d-glass-master {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.92) 0%, rgba(168, 85, 247, 0.95) 50%, rgba(236, 72, 153, 0.92) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 4px 0 0 #4c1d95,
+    0 8px 24px -2px rgba(168, 85, 247, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.btn-3d-glass-master:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.96) 0%, rgba(192, 132, 252, 0.98) 50%, rgba(244, 114, 182, 0.96) 100%);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 6px 0 0 #4c1d95,
+    0 14px 32px -2px rgba(168, 85, 247, 0.65),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-3d-glass-master:active:not(:disabled) {
+  box-shadow:
+    0 1px 0 0 #4c1d95,
+    0 3px 10px 0 rgba(168, 85, 247, 0.4),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 10. 3D Glass Tab Capsules */
+.tab-3d-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.tab-3d-glass.active-indigo {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.92) 0%, rgba(124, 58, 237, 0.95) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 3px 0 0 #3730a3,
+    0 6px 16px -2px rgba(99, 102, 241, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+.tab-3d-glass.active-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.92) 0%, rgba(13, 148, 136, 0.95) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 3px 0 0 #065f46,
+    0 6px 16px -2px rgba(16, 185, 129, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+.tab-3d-glass.active-amber {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.95) 0%, rgba(245, 158, 11, 0.95) 100%);
+  color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 3px 0 0 #b45309,
+    0 6px 16px -2px rgba(245, 158, 11, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+/* 11. Subtle Batch Download Shimmer Animation */
+@keyframes subtle-batch-shimmer {
+  0% {
+    transform: translateX(-140%) skewX(-16deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(280%) skewX(-16deg);
+    opacity: 0;
+  }
+}
+
+.animate-batch-shimmer {
+  animation: subtle-batch-shimmer 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+

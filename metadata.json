@@ -1,0 +1,8 @@
+{
+  "name": "Remix Social Video Downloader",
+  "description": "កម្មវិធីទាញយកវីដេអូ TikTok គ្មានសញ្ញាទឹក (No Watermark) គុណភាព HD និងទាញយក MP3 ល្បឿនលឿន អាចជ្រើសរើសទីតាំងរក្សាទុកបាន",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
