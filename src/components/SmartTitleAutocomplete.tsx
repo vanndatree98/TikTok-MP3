@@ -14,6 +14,7 @@ import {
   DramaTitleItem,
   searchDramaTitles
 } from '../data/popularDramaTitles';
+import { getSafeMediaUrl } from '../utils/mediaUrlHelper';
 import { GLOBAL_SOCIAL_NETWORKS } from '../utils/socialSearchHelper';
 
 interface Props {
@@ -174,7 +175,7 @@ export default function SmartTitleAutocomplete({
             >
               <div className="flex items-center gap-3 min-w-0 flex-1">
                 <img
-                  src={item.posterUrl}
+                  src={getSafeMediaUrl(item.posterUrl)}
                   alt={item.title}
                   className="w-10 h-12 rounded object-cover bg-slate-800 shrink-0 border border-slate-700/60 group-hover:border-teal-400/60"
                   referrerPolicy="no-referrer"

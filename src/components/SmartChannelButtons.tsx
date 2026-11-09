@@ -23,6 +23,7 @@ import {
   Download
 } from 'lucide-react';
 import { TIKTOK_DRAMA_CHANNELS, DramaChannel } from '../data/dramaChannels';
+import { getSafeMediaUrl } from '../utils/mediaUrlHelper';
 
 interface Props {
   isKm: boolean;
@@ -449,7 +450,7 @@ export default function SmartChannelButtons({
                     {/* Top Poster Cover Banner with Official Logo */}
                     <div className="relative w-full h-36 sm:h-40 overflow-hidden bg-slate-950">
                       <img
-                        src={channel.posterUrl}
+                        src={getSafeMediaUrl(channel.posterUrl)}
                         alt={channel.previewDramaTitle || channel.displayName}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
@@ -674,7 +675,7 @@ export default function SmartChannelButtons({
                   >
                     {/* Mini Poster Thumbnail */}
                     <img
-                      src={channel.posterUrl}
+                      src={getSafeMediaUrl(channel.posterUrl)}
                       alt={channel.displayName}
                       className="w-7 h-7 rounded-lg object-cover shadow-xs border border-amber-400/30 shrink-0"
                       referrerPolicy="no-referrer"

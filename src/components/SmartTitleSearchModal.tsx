@@ -24,6 +24,7 @@ import {
   DramaTitleItem,
   searchDramaTitles
 } from '../data/popularDramaTitles';
+import { getSafeMediaUrl } from '../utils/mediaUrlHelper';
 import {
   SUPPORTED_COUNTRIES,
   GLOBAL_SOCIAL_NETWORKS,
@@ -453,7 +454,7 @@ export default function SmartTitleSearchModal({
                     <div className="flex items-start gap-3.5 flex-1 min-w-0">
                       <div className="relative w-14 h-18 sm:w-16 sm:h-20 rounded-lg overflow-hidden bg-slate-800 shrink-0 border border-slate-700/60 shadow-md group-hover:border-teal-400/50 transition-colors">
                         <img
-                          src={item.posterUrl}
+                          src={getSafeMediaUrl(item.posterUrl)}
                           alt={item.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           loading="lazy"

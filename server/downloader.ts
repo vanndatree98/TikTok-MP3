@@ -191,6 +191,8 @@ function getRefererForUrl(mediaUrl: string): string {
   return 'https://www.tiktok.com/';
 }
 
+const DEV_NULL = process.platform === 'win32' ? 'NUL' : '/dev/null';
+
 /**
  * Get HTTP headers from remote media using curl HEAD request
  */
@@ -249,13 +251,12 @@ async function getRemoteHeaders(url: string, extraHeaders: Record<string, string
   // Fallback: If HEAD gave 0 contentLength or non-200 status (or 204 on tikcdn), probe with a minimal byte-range request
   if ((contentLength <= 0 || status >= 400 || status === 204) && url.startsWith('http')) {
     try {
-      const devNull = process.platform === 'win32' ? 'NUL' : '/dev/null';
       const probeRes = await execCurl([
         '-s',
         '-L',
         '-r', '0-0',
         '-D', '-',
-        '-o', devNull,
+        '-o', DEV_NULL,
         '--max-time', '6',
         '-H', `Referer: ${getRefererForUrl(url)}`,
         '-H', 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -390,7 +391,7 @@ export async function expandTikTokShortUrl(shortUrl: string): Promise<{ finalUrl
   // Fallback with curl GET without -I
   try {
     const res = await execCurl([
-      '-s', '-L', '-o', '/dev/null', '-w', '%{url_effective}',
+      '-s', '-L', '-o', DEV_NULL, '-w', '%{url_effective}',
       '-H', 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15',
       shortUrl
     ], 5000);
@@ -1279,7 +1280,7 @@ export async function scanCreatorDramas(rawInput: string, quickMode = false): Pr
   if (input.includes('vt.tiktok.com') || input.includes('vm.tiktok.com') || input.includes('/t/')) {
     try {
       const redir = await execCurl([
-        '-s', '-I', '-L', '-o', '/dev/null', '-w', '%{url_effective}',
+        '-s', '-I', '-L', '-o', DEV_NULL, '-w', '%{url_effective}',
         '-H', 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         input
       ], 5000);
@@ -1638,7 +1639,7 @@ export async function convertShortDramaUrl(rawUrl: string, targetEpisodeNum?: nu
         '-s',
         '-I',
         '-L',
-        '-o', '/dev/null',
+        '-o', DEV_NULL,
         '-w', '%{url_effective}',
         '-H', 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         targetUrl
@@ -2566,7 +2567,7 @@ export async function resolveKuaishouVideo(rawUrl: string): Promise<VideoInfo> {
   if (targetUrl.includes('v.kuaishou.com')) {
     try {
       const redirRes = await execCurl([
-        '-s', '-I', '-L', '-o', '/dev/null',
+        '-s', '-I', '-L', '-o', DEV_NULL,
         '-w', '%{url_effective}',
         '-H', 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15',
         targetUrl
@@ -2635,7 +2636,7 @@ export async function resolveBilibiliVideo(rawUrl: string): Promise<VideoInfo> {
   if (targetUrl.includes('b23.tv')) {
     try {
       const redirRes = await execCurl([
-        '-s', '-I', '-L', '-o', '/dev/null',
+        '-s', '-I', '-L', '-o', DEV_NULL,
         '-w', '%{url_effective}',
         '-H', 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         targetUrl
@@ -3137,7 +3138,7 @@ export async function resolveDouyinVideo(rawUrl: string): Promise<VideoInfo> {
         '-s',
         '-I',
         '-L',
-        '-o', '/dev/null',
+        '-o', DEV_NULL,
         '-w', '%{url_effective}',
         '-H', 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
         targetUrl

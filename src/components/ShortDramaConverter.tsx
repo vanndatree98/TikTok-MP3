@@ -3397,7 +3397,7 @@ export default function ShortDramaConverter({
                               type="button"
                               onClick={e => {
                                 e.stopPropagation();
-                                downloadOriginalCover(
+                                downloadOriginalImage(
                                   epCover,
                                   `${singleDramaResult.seriesName}_Ep${ep.episodeNumber}_cover.jpg`
                                 );
